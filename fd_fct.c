@@ -33,11 +33,15 @@ static void	*close_files(int *fd, char *infile, char *outfile)
 		ft_putendl_fd("close_files: close error ", infile);
 		if (close(fd[1]) == -1)
 			ft_putendl_fd("close_files: close error ", outfile);
+		ft_strdel(&infile);
+		ft_strdel(&outfile);
 		ft_error(NULL);
 	}
 	if (close(fd[1]) == -1)
 	{
 		ft_putendl_fd("close_files: close error ", outfile);
+		ft_strdel(&infile);
+		ft_strdel(&outfile);
 		ft_error(NULL);
 	}
 }
